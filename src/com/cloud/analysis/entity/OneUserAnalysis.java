@@ -1,14 +1,14 @@
-package com.cloud.analysis.entity;
+ï»¿package com.cloud.analysis.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OneUserAnalysis {
-	private int record = 0;//Õû¸ö½Å±¾µÄÂ¼ÖÆÊ±¼ä
-	private int urls = 0;//×ÜµÄÇëÇóÊı	
-	//private int total = 0;//Ö´ĞĞÊ±¼ä
+	private int record = 0;//æ•´ä¸ªè„šæœ¬çš„å½•åˆ¶æ—¶é—´
+	private int urls = 0;//æ€»çš„è¯·æ±‚æ•°	
+	//private int total = 0;//æ‰§è¡Œæ—¶é—´
 	private HashMap<String, Integer> host = null;
-	//ÊÂÎñ¶ÔÓ¦µÄÃ¿¸öÀàĞÍµÄÍ³¼Æ
+	//äº‹åŠ¡å¯¹åº”çš„æ¯ä¸ªç±»å‹çš„ç»Ÿè®¡
 	private HashMap<String, HashMap<String, URLDetailEntity>> type = null;		
 	private ArrayList<OneUserEntity> list = null;
 

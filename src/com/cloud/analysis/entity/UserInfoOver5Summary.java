@@ -1,4 +1,4 @@
-package com.cloud.analysis.entity;
+锘縫ackage com.cloud.analysis.entity;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ public class UserInfoOver5Summary {
 	private String name = null;
 	
 	private long total = 0;	
-	private ArrayList<String[]> agent = null;//对应的agent个数
+	private ArrayList<String[]> agent = null;//瀵瑰簲鐨刟gent涓暟
 	
 	public String getTask() {
 		return task;

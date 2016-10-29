@@ -1,26 +1,26 @@
-package com.cloud.config;
+ï»¿package com.cloud.config;
 
 import java.util.List;
 
 public class TestcaseTask {
 	private String name = null;
-	//½Å±¾
+	//è„šæœ¬
 	private String scripter = null;
-	//²ÎÊıÎÄ¼ş
+	//å‚æ•°æ–‡ä»¶
 	private String paraFile = null;
 	
-	//½Å±¾¶ÔÓ¦µÄÖ´ĞĞÆ÷
+	//è„šæœ¬å¯¹åº”çš„æ‰§è¡Œå™¨
 	private List<LoadAgentConfig> loadAgent = null;
-	//Ê©Ñ¹Ä£ĞÍ
+	//æ–½å‹æ¨¡å‹
 	private Model model = null;
 	
-	//¿ªÊ¼Ö´ĞĞ
+	//å¼€å§‹æ‰§è¡Œ
 	private StartConfig startConfig = null;
-	//½áÊøÖ´ĞĞ
+	//ç»“æŸæ‰§è¡Œ
 	private StopConfig stopConfig = null;
-	//ÔËĞĞ´ÎÊı
+	//è¿è¡Œæ¬¡æ•°
 	private IteratorTimes iteratorTimes = null;
-	//¼¯ºÏµã
+	//é›†åˆç‚¹
 	private Rendezvous rendezvous = null;		
 	
 	public String getName() {

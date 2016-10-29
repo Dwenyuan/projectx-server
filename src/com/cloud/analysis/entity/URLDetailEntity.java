@@ -1,4 +1,4 @@
-package com.cloud.analysis.entity;
+﻿package com.cloud.analysis.entity;
 
 public class URLDetailEntity {
 	public int number = 0;

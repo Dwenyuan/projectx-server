@@ -1,8 +1,8 @@
-package com.cloud.config;
+锘縫ackage com.cloud.config;
 
 public class UserInfo {
 	private String name = null;
-	private int taskNum = 1;//能运行的任务数，可以同时运行多个
+	private int taskNum = 1;//鑳借繍琛岀殑浠诲姟鏁帮紝鍙互鍚屾椂杩愯澶氫釜
 	
 	public String getName() {
 		return name;

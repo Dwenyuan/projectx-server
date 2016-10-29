@@ -1,20 +1,20 @@
-package com.cloud.analysis.entity;
+ï»¿package com.cloud.analysis.entity;
 
 public class OneUserEntity {
-	private String name;//Ãû³Æ»òurl
+	private String name;//åç§°æˆ–url
 	private String method = null;
 	private String des = null;
 	private String response = null;
-	private String recordC = null;//Â¼ÖÆÏìÓ¦Öµ
-	private int nTCP = 0;//ÊÇ·ñ´´½¨tcp
+	private String recordC = null;//å½•åˆ¶å“åº”å€¼
+	private int nTCP = 0;//æ˜¯å¦åˆ›å»ºtcp
 	private int dns = 0;
 	private int tcp = 0;
 	private int first = 0;
 	private int left = 0;
 	private int diff = 0;
-	private int recordT = 0;//Â¼ÖÆÊ±¼ä
+	private int recordT = 0;//å½•åˆ¶æ—¶é—´
 	private int bytes = 0;
-	private int recordB = 0;//Â¼ÖÆ×Ö½Ú
+	private int recordB = 0;//å½•åˆ¶å­—èŠ‚
 	private String host = null;
 	private String belong = null;
 	public String getName() {

@@ -1,4 +1,4 @@
-package com.cloud.analysis.entity;
+锘縫ackage com.cloud.analysis.entity;
 
 import java.util.ArrayList;
 
@@ -8,8 +8,8 @@ public class UserInfoErrorSummary {
 	private String name = null;
 	
 	private long total = 0;
-	private int urls = 0;//对应的URL个数，通过索引聚合一样的URL
-	private ArrayList<String[]> agent = null;//对应的agent个数
+	private int urls = 0;//瀵瑰簲鐨刄RL涓暟锛岄�氳繃绱㈠紩鑱氬悎涓�鏍风殑URL
+	private ArrayList<String[]> agent = null;//瀵瑰簲鐨刟gent涓暟
 	
 	public String getTask() {
 		return task;

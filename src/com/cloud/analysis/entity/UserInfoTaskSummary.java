@@ -1,22 +1,22 @@
-package com.cloud.analysis.entity;
+ï»¿package com.cloud.analysis.entity;
 
 public class UserInfoTaskSummary {
-	private String name = null;//ÔÚ´ò¿ªÊ×Ò³Ê±¸³Öµ
-	private int type = 0;//0±íÊ¾ÊÇÈÎÎñ£¬1±íÊ¾ÊÇagent£¬2±íÊ¾ÊÇ×Ô¶¨ÒåÊÂÎñ, 3ÊÇagentµÄ×Ô¶¨ÒåÊÂÎñ
-	private long total = 0;//×ÜÊı
+	private String name = null;//åœ¨æ‰“å¼€é¦–é¡µæ—¶èµ‹å€¼
+	private int type = 0;//0è¡¨ç¤ºæ˜¯ä»»åŠ¡ï¼Œ1è¡¨ç¤ºæ˜¯agentï¼Œ2è¡¨ç¤ºæ˜¯è‡ªå®šä¹‰äº‹åŠ¡, 3æ˜¯agentçš„è‡ªå®šä¹‰äº‹åŠ¡
+	private long total = 0;//æ€»æ•°
 	private long success = 0;
 	private long error = 0;
 	private int ave = 0;
 	private int max = 0;
 	private int min = Integer.MAX_VALUE;
-	private int record = 0;//Â¼ÖÆÊ±µÄ²ÎÕÕÖµ£¬Ô­Ê¼Öµ
+	private int record = 0;//å½•åˆ¶æ—¶çš„å‚ç…§å€¼ï¼ŒåŸå§‹å€¼
 	private int[] percent = new int[10];//90% 10  80% 20   70%  30   60  40   50  50
 
-	//1±íÊ¾´íÎóÂë£¬2±íÊ¾³¬Ê±£¬3±íÊ¾TCP½¨Á¢Ê§°Ü£¬4±íÊ¾¶ÏÑÔÊ§°Ü£¬5±íÊ¾ÉÏ´«ÎÄ¼şÊ§°Ü, 6·şÎñÆ÷Ö÷¶¯¹Ø±Õtcp,7½¨Á¢IPĞ­ÒéÕ»µÄTCPÊ§°Ü, 8TLS½¨Á¢Ê§°Üµ«TCP³É¹¦, 9µ÷ÓÃjava
+	//1è¡¨ç¤ºé”™è¯¯ç ï¼Œ2è¡¨ç¤ºè¶…æ—¶ï¼Œ3è¡¨ç¤ºTCPå»ºç«‹å¤±è´¥ï¼Œ4è¡¨ç¤ºæ–­è¨€å¤±è´¥ï¼Œ5è¡¨ç¤ºä¸Šä¼ æ–‡ä»¶å¤±è´¥, 6æœåŠ¡å™¨ä¸»åŠ¨å…³é—­tcp,7å»ºç«‹IPåè®®æ ˆçš„TCPå¤±è´¥, 8TLSå»ºç«‹å¤±è´¥ä½†TCPæˆåŠŸ, 9è°ƒç”¨java
 	private int[] failed = new int[9];
-	//ÇëÇó×ÜÊı¡¢httpÖ»Ëã·¢ËÍ£¬rtspÒ²ÊÇ£¬ÆäËûÎª·¢ËÍÓë½ÓÊÕ
+	//è¯·æ±‚æ€»æ•°ã€httpåªç®—å‘é€ï¼Œrtspä¹Ÿæ˜¯ï¼Œå…¶ä»–ä¸ºå‘é€ä¸æ¥æ”¶
 	private float aveRequests = 0;
-	public int scripter = 0;//½Å±¾²ÎÕÕÖµ
+	public int scripter = 0;//è„šæœ¬å‚ç…§å€¼
 	private int maxRequests = 0;
 	private int minRequests = Integer.MAX_VALUE;
 	

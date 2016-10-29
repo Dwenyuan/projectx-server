@@ -1,4 +1,4 @@
-package com.cloud.utils;
+ï»¿package com.cloud.utils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -20,7 +20,7 @@ public class Utils {
 	public static Random r = new Random(System.currentTimeMillis());
 	
 	/**
-	 * ´Ó½ÓÊÕµÄHttpÀï»ñÈ¡jsonÄÚÈİ
+	 * ä»æ¥æ”¶çš„Httpé‡Œè·å–jsonå†…å®¹
 	 * @param request
 	 * @return
 	 * @throws Exception
@@ -28,19 +28,19 @@ public class Utils {
     public static String getDataFromHTTP(HttpServletRequest request) throws Exception
     {
         InputStream inputStream = request.getInputStream();
-        // È¡HTTPÇëÇóÁ÷³¤¶È
+        // å–HTTPè¯·æ±‚æµé•¿åº¦
         int size = request.getContentLength();
         return new String(getDataFromHTTP(size, inputStream), "utf-8");
     }
     
     private static byte[] getDataFromHTTP(int size, InputStream inputStream) throws Exception{
-    	if(size < 0){//ÊÇchunked
+    	if(size < 0){//æ˜¯chunked
         	ByteArrayOutputStream out = new ByteArrayOutputStream(2048);
         	byte[] buffer = new byte[1024];
         	int len = inputStream.read(buffer);
         	while(len != -1){
         		out.write(buffer, 0, len);
-        		if(out.size() > 250000000){//ÏŞÖÆ200M
+        		if(out.size() > 250000000){//é™åˆ¶200M
             		throw new Exception("Size Too Big");
             	}
         		len = inputStream.read(buffer);
@@ -49,9 +49,9 @@ public class Utils {
         	out.close();
         	return dataByte;
         }
-        else{//´æÔÚcontent-length
-	        // ÓÃÓÚ´æ·Å½á¹ûµÄÊı×é
-        	if(size > 250000000){//ÏŞÖÆ200M
+        else{//å­˜åœ¨content-length
+	        // ç”¨äºå­˜æ”¾ç»“æœçš„æ•°ç»„
+        	if(size > 250000000){//é™åˆ¶200M
         		throw new Exception("Size Too Big");
         	}
 	        byte[] dataByte = new byte[size];
@@ -89,7 +89,7 @@ public class Utils {
 		try{
 			response.setContentType("application/json; charset=utf-8"); 
 			response.setHeader("Cache-Control", "no-cache");
-			if(json.length() > 10000){//´óÓÚ10K£¬Ñ¹Ëõ´«Êä
+			if(json.length() > 10000){//å¤§äº10Kï¼Œå‹ç¼©ä¼ è¾“
 				response.setHeader("Content-Encoding", "gzip");
 
 				GZIPOutputStream gps = new GZIPOutputStream(response.getOutputStream());
@@ -109,7 +109,7 @@ public class Utils {
 			response.setContentType("text/html; charset=utf-8"); 
 			response.setHeader("Cache-Control", "no-cache");
 			byte[] htmlData = html.getBytes("utf-8");
-			if(htmlData.length > 10000){//´óÓÚ10K£¬Ñ¹Ëõ´«Êä
+			if(htmlData.length > 10000){//å¤§äº10Kï¼Œå‹ç¼©ä¼ è¾“
 				response.setHeader("Content-Encoding", "gzip");
 
 				GZIPOutputStream gps = new GZIPOutputStream(response.getOutputStream());
@@ -125,7 +125,7 @@ public class Utils {
     }    
     
     /**
-     * Ô¶³Ìµ÷ÓÃÆäËûÏµÍ³½Ó¿ÚĞèÒªÍ¨¹ı·şÎñ²ã
+     * è¿œç¨‹è°ƒç”¨å…¶ä»–ç³»ç»Ÿæ¥å£éœ€è¦é€šè¿‡æœåŠ¡å±‚
      * @param url
      * @param content
      * @return
@@ -190,7 +190,7 @@ public class Utils {
     }	
     
     /**
-     * Ô¶³Ìµ÷ÓÃÆäËûÏµÍ³½Ó¿ÚĞèÒªÍ¨¹ı·şÎñ²ã
+     * è¿œç¨‹è°ƒç”¨å…¶ä»–ç³»ç»Ÿæ¥å£éœ€è¦é€šè¿‡æœåŠ¡å±‚
      * @param url
      * @return
      * @throws Exception
@@ -208,7 +208,7 @@ public class Utils {
         if(cookie != null){
         	httpURLConnection.setRequestProperty("Cookie", cookie);
         }
-        httpURLConnection.setReadTimeout(timeout);//120Ãë»¹Ã»¶Áµ½Êı¾İÔòÍË³ö
+        httpURLConnection.setReadTimeout(timeout);//120ç§’è¿˜æ²¡è¯»åˆ°æ•°æ®åˆ™é€€å‡º
         InputStream inputStream = null;
         byte[] picData = null;
         

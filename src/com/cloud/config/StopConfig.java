@@ -1,11 +1,11 @@
-package com.cloud.config;
+ï»¿package com.cloud.config;
 
 public class StopConfig {	
-	private int stopIndex = 0;//Ñ¡ÔñÄÄ¸ö
-	private String stopUser = null;//¶àÉÙ¸öÓÃ»§Ê§°ÜÊ±Í£Ö¹£¬Ñ¡ÔñµÚ¶ş¸öÊ±ÓÃ
-	private String stopPercent = null;//°Ù·ÖÖ®¶àÉÙ¸öÓÃ»§Ê§°ÜÊ±Í£Ö¹£¬Ñ¡ÔñµÚÈı¸öÊ±ÓÃ
-	private String runTime = null;//ºô½Ğ¶à³¤Ê±¼ä¾ÍÍ£Ö¹
-	private String stopTime = null;//ÉèÖÃ½áÊøÊ±¼ä£¬Ñ¡ÔñµÚËÄ¸öÊ±ÓÃ
+	private int stopIndex = 0;//é€‰æ‹©å“ªä¸ª
+	private String stopUser = null;//å¤šå°‘ä¸ªç”¨æˆ·å¤±è´¥æ—¶åœæ­¢ï¼Œé€‰æ‹©ç¬¬äºŒä¸ªæ—¶ç”¨
+	private String stopPercent = null;//ç™¾åˆ†ä¹‹å¤šå°‘ä¸ªç”¨æˆ·å¤±è´¥æ—¶åœæ­¢ï¼Œé€‰æ‹©ç¬¬ä¸‰ä¸ªæ—¶ç”¨
+	private String runTime = null;//å‘¼å«å¤šé•¿æ—¶é—´å°±åœæ­¢
+	private String stopTime = null;//è®¾ç½®ç»“æŸæ—¶é—´ï¼Œé€‰æ‹©ç¬¬å››ä¸ªæ—¶ç”¨
 	
 	public int getStopIndex() {
 		return stopIndex;

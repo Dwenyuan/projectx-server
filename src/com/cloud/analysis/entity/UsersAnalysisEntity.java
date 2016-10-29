@@ -1,4 +1,4 @@
-package com.cloud.analysis.entity;
+﻿package com.cloud.analysis.entity;
 
 import java.util.List;
 

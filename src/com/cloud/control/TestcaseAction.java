@@ -1,4 +1,4 @@
-package com.cloud.control;
+ï»¿package com.cloud.control;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,315 +26,297 @@ import com.cloud.utils.Utils;
 import kylinPET.PET39;
 
 @Controller
-public class TestcaseAction
-{
-    public static final Logger log = Logger.getLogger(TestcaseAction.class);
-    public PET39 PET39 = new PET39();
+public class TestcaseAction {
+	public static final Logger log = Logger.getLogger(TestcaseAction.class);
+	public PET39 PET39 = new PET39();
 
-    @RequestMapping(value = "/test")
-    public void test(HttpServletRequest request, HttpServletResponse response)
-    {
-        try
-        {        	
-            String user = request.getParameter("user");
-            if (user == null || user.length() == 0)
-            {
-                log.error("can't get user");
-                return;
-            }
-                        
-            UserInfo userInfo = new UserInfo();
-            userInfo.setName(user);
-            test(userInfo, false);
-        }
-        catch (Exception e)
-        {
-            log.error("", e);            
-            return;
-        }
-    }
-    
-    /**
-     * »ñÈ¡Í³¼ÆÊı¾İÓëÈÕÖ¾
-     * @param request
-     * @param response
-     */
-    @RequestMapping(value = "/getData")
-    public void getData(HttpServletRequest request, HttpServletResponse response)
-    {
-        try
-        {        	
-            String user = request.getParameter("user");
-            if (user == null || user.length() == 0)
-            {
-                log.error("can't get user");
-                return;
-            }
-            String testcase = request.getParameter("testcase");  
-            boolean ave = false; //»ñÈ¡Ã¿·ÖÖÓÆ½¾ùÖµ£¬Ä¬ÈÏÊÇÃ¿ÃëÖµ
-            boolean readAll = false; //Ä¬ÈÏfalseÎªÊµÊ±»ñÈ¡µã£¬true±íÊ¾»òÕß×îºó300¸öµã£¨ÓÃÓÚ¹Øµôä¯ÀÀÆ÷ÓÖ»ØÀ´ÕâÖÖµÚÒ»´Î»ñÈ¡£©
-            boolean readLog = true;//ÊÇ·ñ¶ÁÈ¡ÈÕÖ¾
-            String aveString = request.getParameter("ave");
-            if(aveString != null){
-            	try{
-            		ave = Boolean.valueOf(aveString);
-            	}catch(Exception e){}
-            }
-            String readAllString = request.getParameter("readAll");
-            if(readAllString != null){
-            	try{
-            		readAll = Boolean.valueOf(readAllString);
-            	}catch(Exception e){}
-            }
-            String readLogString = request.getParameter("readLog");
-            if(readLogString != null){
-            	try{
-            		readLog = Boolean.valueOf(readLogString);
-            	}catch(Exception e){}
-            }
-            Utils.outPut200(response, getData(user, testcase, ave, readAll, readLog));	
-        }
-        catch (Exception e)
-        {
-            log.error("", e);            
-            Utils.outPut500(response, e);
-        }
-    }
-    
-    /**
-     * »ñÈ¡ÔËĞĞÍê³ÉÊä³öµÄ»ã×Ü±¨¸æ
-     * @param request
-     * @param response
-     */
-    @RequestMapping(value = "/getReport")
-    public void getReport(HttpServletRequest request, HttpServletResponse response)
-    {
-        try
-        {        	
-            String user = request.getParameter("user");
-            if (user == null || user.length() == 0)
-            {
-                log.error("can't get user");
-                return;
-            }
-            String testcase = request.getParameter("testcase");                          
-            Utils.outPutHTML(response, PET39.getReportSummary(user, testcase));	
-        }
-        catch (Exception e)
-        {
-            log.error("", e);            
-            Utils.outPut500(response, e);
-        }
-    }
-    
-    /**
-     * »ñÈ¡ÓÃ»§ÏêÇéµÄÊı¾İ
-     * actionÖµº¬Òå£º
-		0±íÊ¾»ñÈ¡ÈÎÎñ»ã×Ü(°üÀ¨ÊÂÎñ¡¢ÓÃ»§¡¢URL)£¬1±íÊ¾³É¹¦ÓÃ»§Ê±¼äÍ¼¡¢2±íÊ¾Ê§°ÜÓÃ»§Ê±¼äÍ¼¡¢3±íÊ¾ÊÂÎñ³¬¹ı5ºÁÃëÊ±¼äÍ¼
-		4±íÊ¾Ä³ÖÖÊ§°ÜÔ­ÒòµÄÃ¿ÃëÊ§°ÜÊı¡¢5±íÊ¾URLÊ§°ÜÃ¿ÃëÊ§°ÜÊıµÄÊ±¼äÍ¼¡¢6±íÊ¾URLÊ±¼äÍ¼¡¢16±íÊ¾URLÃ¿Ãë¸öÊı£¨³É¹¦ÓëÊ§°Ü£©Í¼
-		7±íÊ¾¶ÁÈ¡ÓÃ»§»ã×ÜĞÅÏ¢£¬ÓĞ¶àÉÙ¸ö¡¢8±íÊ¾¶ÁÈ¡Ä³Ò»Ò³µÄÓÃ»§ĞÅÏ¢¡¢9±íÊ¾¶ÁÈ¡ÌØ¶¨ÓÃ»§ĞÅÏ¢¡¢19»ñÈ¡Ä³¸öÓÃ»§µÄÔËĞĞÈÕÖ¾
-     * @param request
-     * @param response
-     */
-    @RequestMapping(value = "/getUserDetail")
-    public void getUserDetail(HttpServletRequest request, HttpServletResponse response)
-    {
-        try
-        {        	
-            String user = request.getParameter("user");
-            if (user == null || user.length() == 0)
-            {
-                log.error("can't get user");
-                return;
-            }
-            String testcase = request.getParameter("testcase");//²âÊÔ³¡¾°£¨ÓÃÀı£©  
-            String task = request.getParameter("task");  //ÈÎÎñ£¬¶à¸öÈÎÎñÊ±±íÊ¾»òÕßÄÄ¸öÈÎÎñ£¬ÈÎÎñ²»¶ÔÔòÓÀÔ¶»ñÈ¡µÚÒ»¸ö
-            //actionº¬Òå¼ûÉÏÃæ×¢ÊÍ
-            int action = 0;
-            String actionStr = request.getParameter("action");  
-            if(actionStr != null){
-            	try{
-            		action = Integer.valueOf(actionStr);
-            	}catch(Exception e){}
-            }                        
-            Utils.outPutHTML(response, PET39.doUserInfoAnalysis(user, testcase, task, action, null));	
-        }
-        catch (Exception e)
-        {
-            log.error("", e);            
-            Utils.outPut500(response, e);
-        }
-    }
-    
-    /**
-     * »ñÈ¡ÓÃ»§ÏêÇéµÄÊı¾İ
-     * actionÖµº¬Òå£º
-		0±íÊ¾»ñÈ¡ÈÎÎñ»ã×Ü(°üÀ¨ÊÂÎñ¡¢ÓÃ»§¡¢URL)£¬1±íÊ¾³É¹¦ÓÃ»§Ê±¼äÍ¼¡¢2±íÊ¾Ê§°ÜÓÃ»§Ê±¼äÍ¼¡¢3±íÊ¾ÊÂÎñ³¬¹ı5ºÁÃëÊ±¼äÍ¼
-		4±íÊ¾Ä³ÖÖÊ§°ÜÔ­ÒòµÄÃ¿ÃëÊ§°ÜÊı¡¢5±íÊ¾URLÊ§°ÜÃ¿ÃëÊ§°ÜÊıµÄÊ±¼äÍ¼¡¢6±íÊ¾URLÊ±¼äÍ¼¡¢16±íÊ¾URLÃ¿Ãë¸öÊı£¨³É¹¦ÓëÊ§°Ü£©Í¼
-		7±íÊ¾¶ÁÈ¡ÓÃ»§»ã×ÜĞÅÏ¢£¬ÓĞ¶àÉÙ¸ö¡¢8±íÊ¾¶ÁÈ¡Ä³Ò»Ò³µÄÓÃ»§ĞÅÏ¢¡¢9±íÊ¾¶ÁÈ¡ÌØ¶¨ÓÃ»§ĞÅÏ¢¡¢19»ñÈ¡Ä³¸öÓÃ»§µÄÔËĞĞÈÕÖ¾
-     * @param request
-     * @param response
-     */
-    @RequestMapping(value = "/getOneUser")
-    public void getOneUser(HttpServletRequest request, HttpServletResponse response)
-    {
-        try
-        {        	
-            String user = request.getParameter("user");
-            if (user == null || user.length() == 0)
-            {
-                log.error("can't get user");
-                return;
-            }
-            String testcase = request.getParameter("testcase");//²âÊÔ³¡¾°£¨ÓÃÀı£©  
-            
-            String agent = request.getParameter("agent");
-            long fileStart = 0;
-            int dataLength = 0;
-            String fileStartStr = request.getParameter("file");
-            if(fileStartStr != null){
-            	try{
-            		fileStart = Long.valueOf(fileStartStr);
-            	}catch(Exception e){}
-            }
-            String lengthStr = request.getParameter("length");
-            if(lengthStr != null){
-            	try{
-            		dataLength = Integer.valueOf(lengthStr);
-            	}catch(Exception e){}
-            }            
-            Utils.outPutHTML(response, PET39.getOneUser(user, testcase, agent, fileStart, dataLength));	
-        }
-        catch (Exception e)
-        {
-            log.error("", e);            
-            Utils.outPut500(response, e);
-        }
-    }
-    
-    private String getData(String user, String testcase, boolean ave, boolean readAll, boolean readLog){    	
-    	return PET39.getJson(user, testcase, false, false, true);
-    }
-    
-    
-    
-    private void addTask(List<TestcaseTask> taskList, String ip, String name, String area, String task){
-    	TestcaseTask task1 = new TestcaseTask();
-        taskList.add(task1);
-        task1.setName(task);
-        if(area.equalsIgnoreCase("beijing")){
-        	task1.setScripter("Example31.spet");
-        }
-        else{
-        	task1.setScripter("Example314.spet");
-        }
-        
-        Model model = new Model();
-        model.setTotalUsers("20");
-        model.setCaps("2");
-        task1.setModel(model);
-        
-        StartConfig startConfig = new StartConfig();         
-        task1.setStartConfig(startConfig);
-        
-        StopConfig stopConfig = new StopConfig();
-        task1.setStopConfig(stopConfig);
-        
-        IteratorTimes iteratorTimes = new IteratorTimes();
-        task1.setIteratorTimes(iteratorTimes);
-        
-        Rendezvous rendezvous = new Rendezvous();
-        task1.setRendezvous(rendezvous);
-        List<LoadAgentConfig> loadAgent = new ArrayList<LoadAgentConfig>();
-        task1.setLoadAgent(loadAgent);
-        LoadAgentConfig agent = new LoadAgentConfig();
-        agent.setIp(ip);
-        agent.setName(name);
-        agent.setAddress(area);            
-        loadAgent.add(agent);
-        
-        if(area.equalsIgnoreCase("beijing")){
-        /*LoadAgentConfig agent2 = new LoadAgentConfig();
-        agent2.setIp("192.168.1.100");
-        agent2.setName("agenthz");
-        agent2.setAddress("beijing");     
-        agent2.setPort(1998);
-        loadAgent.add(agent2);*/
-        
-       /* LoadAgentConfig agent3 = new LoadAgentConfig();
-        agent3.setIp("192.168.1.100");
-        agent3.setName("agentgz");
-        agent3.setAddress("gz");     
-        agent3.setPort(2000);
-        loadAgent.add(agent3);*/
-        }
-    }
-    
-    private void test(UserInfo user, boolean print){
-    	TestcaseTasks testcaseTasks = new TestcaseTasks();
-    	testcaseTasks.setName("abc");
-        testcaseTasks.setWebDetail(1);
-        
-        List<TestcaseTask> taskList = new ArrayList<TestcaseTask>(); 
-        testcaseTasks.setTestcaseTasks(taskList);                                        
-        
-        addTask(taskList, "127.0.0.1", "local", "beijing", "test");
-        //addTask(taskList, "192.168.1.100", "agent2", "shanghai", "tttt2");
-        
-        PET39 operation = new PET39();
-        LoadResult loadResult = operation.loadConfigAndRun(user, testcaseTasks);
-        if(loadResult != null && loadResult.getFailedAgents().size() > 0){//Ö´ĞĞÊ§°Ü£¬ÌáÊ¾ÓÃ»§ÄÄĞ©agentÁ¬½ÓÊ§°Ü
-        	for(LoadAgentConfig config:loadResult.getFailedAgents()){
-        		log.error(("Agent '"+config.getName()+"' and ip = "+config.getIp()+", area = "+config.getAddress()+" "+config.getError()));      
-        	}
-        }
-        if(!print){
-        	return;
-        }
-        try{        	
-        	int second = 0;
-	        while(true){
-	        	Thread.sleep(1000);
-	        	second++;
-	        	/*if(second == 10){
-	        		operation.stop(user.getName(), testcaseTasks.getName());
-	        	}*/
-System.out.println("------------------Í³¼Æ------------------");	        	
-	        	System.out.println(operation.getJson(user.getName(), testcaseTasks.getName(), false, false, true));	        	
-	        	if(operation.isStop(user.getName(), testcaseTasks.getName())){//ËùÓĞÈÎÎñÔËĞĞÍê³É
-	        		break;
-	        	}
-	        }
-	        System.out.println("--------------report------------");
+	@RequestMapping(value = "/test")
+	public void test(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String user = request.getParameter("user");
+			if (user == null || user.length() == 0) {
+				log.error("can't get user");
+				return;
+			}
+
+			UserInfo userInfo = new UserInfo();
+			userInfo.setName(user);
+			test(userInfo, false);
+		} catch (Exception e) {
+			log.error("", e);
+			return;
+		}
+	}
+
+	/**
+	 * è·å–ç»Ÿè®¡æ•°æ®ä¸æ—¥å¿—
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/getData")
+	public void getData(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String user = request.getParameter("user");
+			if (user == null || user.length() == 0) {
+				log.error("can't get user");
+				return;
+			}
+			String testcase = request.getParameter("testcase");
+			boolean ave = false; // è·å–æ¯åˆ†é’Ÿå¹³å‡å€¼ï¼Œé»˜è®¤æ˜¯æ¯ç§’å€¼
+			boolean readAll = false; // é»˜è®¤falseä¸ºå®æ—¶è·å–ç‚¹ï¼Œtrueè¡¨ç¤ºæˆ–è€…æœ€å300ä¸ªç‚¹ï¼ˆç”¨äºå…³æ‰æµè§ˆå™¨åˆå›æ¥è¿™ç§ç¬¬ä¸€æ¬¡è·å–ï¼‰
+			boolean readLog = true;// æ˜¯å¦è¯»å–æ—¥å¿—
+			String aveString = request.getParameter("ave");
+			if (aveString != null) {
+				try {
+					ave = Boolean.valueOf(aveString);
+				} catch (Exception e) {
+				}
+			}
+			String readAllString = request.getParameter("readAll");
+			if (readAllString != null) {
+				try {
+					readAll = Boolean.valueOf(readAllString);
+				} catch (Exception e) {
+				}
+			}
+			String readLogString = request.getParameter("readLog");
+			if (readLogString != null) {
+				try {
+					readLog = Boolean.valueOf(readLogString);
+				} catch (Exception e) {
+				}
+			}
+			Utils.outPut200(response, getData(user, testcase, ave, readAll, readLog));
+		} catch (Exception e) {
+			log.error("", e);
+			Utils.outPut500(response, e);
+		}
+	}
+
+	/**
+	 * è·å–è¿è¡Œå®Œæˆè¾“å‡ºçš„æ±‡æ€»æŠ¥å‘Š
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/getReport")
+	public void getReport(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String user = request.getParameter("user");
+			if (user == null || user.length() == 0) {
+				log.error("can't get user");
+				return;
+			}
+			String testcase = request.getParameter("testcase");
+			Utils.outPutHTML(response, PET39.getReportSummary(user, testcase));
+		} catch (Exception e) {
+			log.error("", e);
+			Utils.outPut500(response, e);
+		}
+	}
+
+	/**
+	 * è·å–ç”¨æˆ·è¯¦æƒ…çš„æ•°æ® actionå€¼å«ä¹‰ï¼š
+	 * 0è¡¨ç¤ºè·å–ä»»åŠ¡æ±‡æ€»(åŒ…æ‹¬äº‹åŠ¡ã€ç”¨æˆ·ã€URL)ï¼Œ1è¡¨ç¤ºæˆåŠŸç”¨æˆ·æ—¶é—´å›¾ã€2è¡¨ç¤ºå¤±è´¥ç”¨æˆ·æ—¶é—´å›¾ã€3è¡¨ç¤ºäº‹åŠ¡è¶…è¿‡5æ¯«ç§’æ—¶é—´å›¾
+	 * 4è¡¨ç¤ºæŸç§å¤±è´¥åŸå› çš„æ¯ç§’å¤±è´¥æ•°ã€5è¡¨ç¤ºURLå¤±è´¥æ¯ç§’å¤±è´¥æ•°çš„æ—¶é—´å›¾ã€6è¡¨ç¤ºURLæ—¶é—´å›¾ã€16è¡¨ç¤ºURLæ¯ç§’ä¸ªæ•°ï¼ˆæˆåŠŸä¸å¤±è´¥ï¼‰å›¾
+	 * 7è¡¨ç¤ºè¯»å–ç”¨æˆ·æ±‡æ€»ä¿¡æ¯ï¼Œæœ‰å¤šå°‘ä¸ªã€8è¡¨ç¤ºè¯»å–æŸä¸€é¡µçš„ç”¨æˆ·ä¿¡æ¯ã€9è¡¨ç¤ºè¯»å–ç‰¹å®šç”¨æˆ·ä¿¡æ¯ã€19è·å–æŸä¸ªç”¨æˆ·çš„è¿è¡Œæ—¥å¿—
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/getUserDetail")
+	public void getUserDetail(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String user = request.getParameter("user");
+			if (user == null || user.length() == 0) {
+				log.error("can't get user");
+				return;
+			}
+			String testcase = request.getParameter("testcase");// æµ‹è¯•åœºæ™¯ï¼ˆç”¨ä¾‹ï¼‰
+			String task = request.getParameter("task"); // ä»»åŠ¡ï¼Œå¤šä¸ªä»»åŠ¡æ—¶è¡¨ç¤ºæˆ–è€…å“ªä¸ªä»»åŠ¡ï¼Œä»»åŠ¡ä¸å¯¹åˆ™æ°¸è¿œè·å–ç¬¬ä¸€ä¸ª
+			// actionå«ä¹‰è§ä¸Šé¢æ³¨é‡Š
+			int action = 0;
+			String actionStr = request.getParameter("action");
+			if (actionStr != null) {
+				try {
+					action = Integer.valueOf(actionStr);
+				} catch (Exception e) {
+				}
+			}
+			Utils.outPutHTML(response, PET39.doUserInfoAnalysis(user, testcase, task, action, null));
+		} catch (Exception e) {
+			log.error("", e);
+			Utils.outPut500(response, e);
+		}
+	}
+
+	/**
+	 * è·å–ç”¨æˆ·è¯¦æƒ…çš„æ•°æ® actionå€¼å«ä¹‰ï¼š
+	 * 0è¡¨ç¤ºè·å–ä»»åŠ¡æ±‡æ€»(åŒ…æ‹¬äº‹åŠ¡ã€ç”¨æˆ·ã€URL)ï¼Œ1è¡¨ç¤ºæˆåŠŸç”¨æˆ·æ—¶é—´å›¾ã€2è¡¨ç¤ºå¤±è´¥ç”¨æˆ·æ—¶é—´å›¾ã€3è¡¨ç¤ºäº‹åŠ¡è¶…è¿‡5æ¯«ç§’æ—¶é—´å›¾
+	 * 4è¡¨ç¤ºæŸç§å¤±è´¥åŸå› çš„æ¯ç§’å¤±è´¥æ•°ã€5è¡¨ç¤ºURLå¤±è´¥æ¯ç§’å¤±è´¥æ•°çš„æ—¶é—´å›¾ã€6è¡¨ç¤ºURLæ—¶é—´å›¾ã€16è¡¨ç¤ºURLæ¯ç§’ä¸ªæ•°ï¼ˆæˆåŠŸä¸å¤±è´¥ï¼‰å›¾
+	 * 7è¡¨ç¤ºè¯»å–ç”¨æˆ·æ±‡æ€»ä¿¡æ¯ï¼Œæœ‰å¤šå°‘ä¸ªã€8è¡¨ç¤ºè¯»å–æŸä¸€é¡µçš„ç”¨æˆ·ä¿¡æ¯ã€9è¡¨ç¤ºè¯»å–ç‰¹å®šç”¨æˆ·ä¿¡æ¯ã€19è·å–æŸä¸ªç”¨æˆ·çš„è¿è¡Œæ—¥å¿—
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/getOneUser")
+	public void getOneUser(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String user = request.getParameter("user");
+			if (user == null || user.length() == 0) {
+				log.error("can't get user");
+				return;
+			}
+			String testcase = request.getParameter("testcase");// æµ‹è¯•åœºæ™¯ï¼ˆç”¨ä¾‹ï¼‰
+
+			String agent = request.getParameter("agent");
+			long fileStart = 0;
+			int dataLength = 0;
+			String fileStartStr = request.getParameter("file");
+			if (fileStartStr != null) {
+				try {
+					fileStart = Long.valueOf(fileStartStr);
+				} catch (Exception e) {
+				}
+			}
+			String lengthStr = request.getParameter("length");
+			if (lengthStr != null) {
+				try {
+					dataLength = Integer.valueOf(lengthStr);
+				} catch (Exception e) {
+				}
+			}
+			Utils.outPutHTML(response, PET39.getOneUser(user, testcase, agent, fileStart, dataLength));
+		} catch (Exception e) {
+			log.error("", e);
+			Utils.outPut500(response, e);
+		}
+	}
+
+	private String getData(String user, String testcase, boolean ave, boolean readAll, boolean readLog) {
+		return PET39.getJson(user, testcase, false, false, true);
+	}
+
+	private void addTask(List<TestcaseTask> taskList, String ip, String name, String area, String task) {
+		TestcaseTask task1 = new TestcaseTask();
+		taskList.add(task1);
+		task1.setName(task);
+		if (area.equalsIgnoreCase("beijing")) {
+			task1.setScripter("Example31.spet");
+		} else {
+			task1.setScripter("Example314.spet");
+		}
+
+		Model model = new Model();
+		model.setTotalUsers("20");
+		model.setCaps("2");
+		task1.setModel(model);
+
+		StartConfig startConfig = new StartConfig();
+		task1.setStartConfig(startConfig);
+
+		StopConfig stopConfig = new StopConfig();
+		task1.setStopConfig(stopConfig);
+
+		IteratorTimes iteratorTimes = new IteratorTimes();
+		task1.setIteratorTimes(iteratorTimes);
+
+		Rendezvous rendezvous = new Rendezvous();
+		task1.setRendezvous(rendezvous);
+		List<LoadAgentConfig> loadAgent = new ArrayList<LoadAgentConfig>();
+		task1.setLoadAgent(loadAgent);
+		LoadAgentConfig agent = new LoadAgentConfig();
+		agent.setIp(ip);
+		agent.setName(name);
+		agent.setAddress(area);
+		loadAgent.add(agent);
+
+		if (area.equalsIgnoreCase("beijing")) {
+			/*
+			 * LoadAgentConfig agent2 = new LoadAgentConfig();
+			 * agent2.setIp("192.168.1.100"); agent2.setName("agenthz");
+			 * agent2.setAddress("beijing"); agent2.setPort(1998);
+			 * loadAgent.add(agent2);
+			 */
+
+			/*
+			 * LoadAgentConfig agent3 = new LoadAgentConfig();
+			 * agent3.setIp("192.168.1.100"); agent3.setName("agentgz");
+			 * agent3.setAddress("gz"); agent3.setPort(2000);
+			 * loadAgent.add(agent3);
+			 */
+		}
+	}
+
+	private void test(UserInfo user, boolean print) {
+		TestcaseTasks testcaseTasks = new TestcaseTasks();
+		testcaseTasks.setName("abc");
+		testcaseTasks.setWebDetail(1);
+
+		List<TestcaseTask> taskList = new ArrayList<TestcaseTask>();
+		testcaseTasks.setTestcaseTasks(taskList);
+
+		addTask(taskList, "127.0.0.1", "local", "beijing", "test");
+		// addTask(taskList, "192.168.1.100", "agent2", "shanghai", "tttt2");
+
+		PET39 operation = new PET39();
+		LoadResult loadResult = operation.loadConfigAndRun(user, testcaseTasks);
+		if (loadResult != null && loadResult.getFailedAgents().size() > 0) {// æ‰§è¡Œå¤±è´¥ï¼Œæç¤ºç”¨æˆ·å“ªäº›agentè¿æ¥å¤±è´¥
+			for (LoadAgentConfig config : loadResult.getFailedAgents()) {
+				log.error(("Agent '" + config.getName() + "' and ip = " + config.getIp() + ", area = "
+						+ config.getAddress() + " " + config.getError()));
+			}
+		}
+		if (!print) {
+			return;
+		}
+		try {
+			int second = 0;
+			while (true) {
+				Thread.sleep(1000);
+				second++;
+				/*
+				 * if(second == 10){ operation.stop(user.getName(),
+				 * testcaseTasks.getName()); }
+				 */
+				System.out.println("------------------ç»Ÿè®¡------------------");
+				System.out.println(operation.getJson(user.getName(), testcaseTasks.getName(), false, false, true));
+				if (operation.isStop(user.getName(), testcaseTasks.getName())) {// æ‰€æœ‰ä»»åŠ¡è¿è¡Œå®Œæˆ
+					break;
+				}
+			}
+			System.out.println("--------------report------------");
 			System.out.println(operation.getReportSummary(user.getName(), testcaseTasks.getName()));
 			System.out.println("--------------summary------------");
-	        System.out.println(operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "test", 0, null));
-	        System.out.println("--------------summary------------");
-	        System.out.println(operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "tttt2", 0, null));
-	        System.out.println("--------------UserInfo------------");
-	        String users = operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "test", 8, null);
-	        System.out.println(users);
-	        Pattern p = Pattern.compile("\"file\":(\\d+),\"len\":(\\d+)");
-	        Matcher m = p.matcher(users);
-	        System.out.println("--------------UserInfo--One----------");
-	        int i = 0;
-	        while(m.find()){
-	        	if(i == 0 || i==5){
-	        	System.out.println(operation.getOneUser(user.getName(), testcaseTasks.getName(), "local", Integer.valueOf(m.group(1)), Integer.valueOf(m.group(2))));
-	        	}		        	  
-	        	i++;
-	        }	        	             
-        }catch(Exception e){
-        	e.printStackTrace();
-        }
-        log.info("success!");
-    }           
-    
-    public static void main(String[] args) throws Exception{
-    	  UserInfo userInfo = new UserInfo();
-          userInfo.setName("lin");
-          TestcaseAction test = new TestcaseAction();
-          test.test(userInfo, true);
-          //test.testAnalysis();
+			System.out.println(operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "test", 0, null));
+			System.out.println("--------------summary------------");
+			System.out.println(operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "tttt2", 0, null));
+			System.out.println("--------------UserInfo------------");
+			String users = operation.doUserInfoAnalysis(user.getName(), testcaseTasks.getName(), "test", 8, null);
+			System.out.println(users);
+			Pattern p = Pattern.compile("\"file\":(\\d+),\"len\":(\\d+)");
+			Matcher m = p.matcher(users);
+			System.out.println("--------------UserInfo--One----------");
+			int i = 0;
+			while (m.find()) {
+				if (i == 0 || i == 5) {
+					System.out.println(operation.getOneUser(user.getName(), testcaseTasks.getName(), "local",
+							Integer.valueOf(m.group(1)), Integer.valueOf(m.group(2))));
+				}
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		log.info("success!");
+	}
+
+	public static void main(String[] args) throws Exception {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setName("lin");
+		TestcaseAction test = new TestcaseAction();
+		test.test(userInfo, true);
+		// test.testAnalysis();
 	}
 }

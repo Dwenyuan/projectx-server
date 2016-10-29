@@ -1,23 +1,23 @@
-package com.cloud.analysis.entity;
+ï»¿package com.cloud.analysis.entity;
 
 import java.util.HashMap;
 
 public class UserInfoURLSummary {
 	private String task = null;
-	private int type = 0;//0±íÊ¾ÊÇ·¢ËÍ£¬1±íÊ¾ÊÇ½ÓÊÕ£¬2±íÊ¾ÊÇÊÂÎñ	
-	private String name = null;//URL»òÃû³Æ
+	private int type = 0;//0è¡¨ç¤ºæ˜¯å‘é€ï¼Œ1è¡¨ç¤ºæ˜¯æ¥æ”¶ï¼Œ2è¡¨ç¤ºæ˜¯äº‹åŠ¡	
+	private String name = null;//URLæˆ–åç§°
 	
-	//ÏÂÃæ3¸ö¿ÉÒÔ¹ıÂËÓÃ
-	private String host = null;//ÓòÃû£¬¸øhttp rtspÓÃ
-	private String belong = "";//¹éÊôÊÂÎñ
+	//ä¸‹é¢3ä¸ªå¯ä»¥è¿‡æ»¤ç”¨
+	private String host = null;//åŸŸåï¼Œç»™http rtspç”¨
+	private String belong = "";//å½’å±äº‹åŠ¡
 	private int httpType = 100;
 		
 	private String method = null;
-	private String rCode = null;//Â¼ÖÆÏìÓ¦Âë£¬¸øhttpÓërtspÓÃ		
-	private int rTime = 0;//Â¼ÖÆÊ±¼ä£¬²ÎÕÕÖµ£¬¿ÉÄÜÎª0Ê±±»ÉèÖÃÎªµÚÒ»¸öÖµ
-	private int rBytes = 0;//Â¼ÖÆÊ±µÄ×Ö½Ú£¬²ÎÕÕÖµ		
+	private String rCode = null;//å½•åˆ¶å“åº”ç ï¼Œç»™httpä¸rtspç”¨		
+	private int rTime = 0;//å½•åˆ¶æ—¶é—´ï¼Œå‚ç…§å€¼ï¼Œå¯èƒ½ä¸º0æ—¶è¢«è®¾ç½®ä¸ºç¬¬ä¸€ä¸ªå€¼
+	private int rBytes = 0;//å½•åˆ¶æ—¶çš„å­—èŠ‚ï¼Œå‚ç…§å€¼		
 	
-	private long total = 0;//×ÜÊı
+	private long total = 0;//æ€»æ•°
 	private long success = 0;
 	private long failed = 0;
 		
@@ -29,7 +29,7 @@ public class UserInfoURLSummary {
 
 	private HashMap<String, Integer> failedType = new HashMap<String, Integer>();
 
-	//ÏÂÃæÊÇÓÃ»§µã»÷°´Å¥Õ¹¿ª¸üÏêÏ¸µÄÊ±¼ä»¨ÏúÓÃ
+	//ä¸‹é¢æ˜¯ç”¨æˆ·ç‚¹å‡»æŒ‰é’®å±•å¼€æ›´è¯¦ç»†çš„æ—¶é—´èŠ±é”€ç”¨
 	private long dnsTime = 0;
 	private long tcp = 0;
 	private long first = 0;

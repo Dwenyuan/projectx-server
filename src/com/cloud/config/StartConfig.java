@@ -1,10 +1,10 @@
-package com.cloud.config;
+ï»¿package com.cloud.config;
 
 public class StartConfig {
-	//0Á¢¼´¿ªÊ¼£¬1ĞİÃßÏàÓ¦ÃëÊıºó¿ªÊ¼£¬2ÌØ¶¨ÈÕÆÚÊ±¼ä¿ªÊ¼
-	private int startIndex = 0;//Ñ¡ÔñÄÄ¸ö
-	private String sleepTime = null;//ÉèÖÃ¿ªÊ¼Ê±¼äÇ°ĞİÃßµÄÊ±¼ä
-	private String startTime = null;//ÉèÖÃ¿ªÊ¼Ê±¼ä£¬Ñ¡ÔñµÚÒ»¸öÊ±ÓÃ
+	//0ç«‹å³å¼€å§‹ï¼Œ1ä¼‘çœ ç›¸åº”ç§’æ•°åå¼€å§‹ï¼Œ2ç‰¹å®šæ—¥æœŸæ—¶é—´å¼€å§‹
+	private int startIndex = 0;//é€‰æ‹©å“ªä¸ª
+	private String sleepTime = null;//è®¾ç½®å¼€å§‹æ—¶é—´å‰ä¼‘çœ çš„æ—¶é—´
+	private String startTime = null;//è®¾ç½®å¼€å§‹æ—¶é—´ï¼Œé€‰æ‹©ç¬¬ä¸€ä¸ªæ—¶ç”¨
 	
 	public int getStartIndex() {
 		return startIndex;

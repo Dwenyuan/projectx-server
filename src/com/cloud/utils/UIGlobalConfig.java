@@ -1,4 +1,4 @@
-package com.cloud.utils;
+﻿package com.cloud.utils;
 
 import java.util.concurrent.ConcurrentHashMap;
 

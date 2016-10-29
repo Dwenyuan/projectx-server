@@ -1,7 +1,7 @@
-package com.cloud.config;
+ï»¿package com.cloud.config;
 
 public class Rendezvous {
-	//0±íÊ¾½ûÓÃ£¬1±íÊ¾ÆôÓÃµ«°´ÕÕcontrollerÅäÖÃ£¬2±íÊ¾ÆôÓÃ°´scripterÅäÖÃ
+	//0è¡¨ç¤ºç¦ç”¨ï¼Œ1è¡¨ç¤ºå¯ç”¨ä½†æŒ‰ç…§controlleré…ç½®ï¼Œ2è¡¨ç¤ºå¯ç”¨æŒ‰scripteré…ç½®
 	private int rendezvousEnable = 0;
 	private int policy = 0;
 	private int policyUsers_Percent = 0;

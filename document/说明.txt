@@ -1,0 +1,5 @@
+1、到官网下载软件，www.kylinpet.com，然后安装
+2、将工程目录agent目录下的agent.jar与conf/test.ini复制到安装目录的agent对应位置（备份下之前的agent.jar）
+3、配置windows/system32/drivers/etc/hosts  添加127.0.0.1  www.xxx.com
+4、点击安装目录下的agent下的agent.bat，启动agent
+5、如果是测试是否OK，可以直接点击TestcaseAction运行（里面有main，也可以作为controller接口）

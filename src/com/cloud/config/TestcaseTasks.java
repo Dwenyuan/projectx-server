@@ -1,23 +1,23 @@
-package com.cloud.config;
+ï»¿package com.cloud.config;
 
 import java.util.List;
 
 public class TestcaseTasks {
 	private List<TestcaseTask> testcaseTasks = null;
-	//¶àÉÙ¸öµã
+	//å¤šå°‘ä¸ªç‚¹
 	private int manyToOne = 60;
-	//½ûÓÃIP£¬ÏµÍ³ÐéÄâIP£¬¸ù¾ÝÐéÄâIP
+	//ç¦ç”¨IPï¼Œç³»ç»Ÿè™šæ‹ŸIPï¼Œæ ¹æ®è™šæ‹ŸIP
 	private int ipSpoof = 0;
-	//0±íÊ¾²»ÆôÓÃ£¬1±íÊ¾Ã¿Ò»¸öÓÃ»§´òÓ¡Ò»¸ö£¬N±íÊ¾N¸öÓÃ»§Ö»´òÓ¡Ò»¸ö¡£¿¼ÂÇÐÔÄÜÎÊÌâ
+	//0è¡¨ç¤ºä¸å¯ç”¨ï¼Œ1è¡¨ç¤ºæ¯ä¸€ä¸ªç”¨æˆ·æ‰“å°ä¸€ä¸ªï¼ŒNè¡¨ç¤ºNä¸ªç”¨æˆ·åªæ‰“å°ä¸€ä¸ªã€‚è€ƒè™‘æ€§èƒ½é—®é¢˜
 	private int webDetail = 0;
 	
-	private int saveMode = 0;//ÓÃ»§ÏêÇé±£´æ²ßÂÔ
+	private int saveMode = 0;//ç”¨æˆ·è¯¦æƒ…ä¿å­˜ç­–ç•¥
 	
 	private int logLevel = 0;
 	
-	private String name = "new";//³¡¾°Ãû³Æ
+	private String name = "new";//åœºæ™¯åç§°
 	
-	private List<Monitor> monitor = null;//¼à¿Ø
+	private List<Monitor> monitor = null;//ç›‘æŽ§
 	
 	public List<TestcaseTask> getTestcaseTasks() {
 		return testcaseTasks;

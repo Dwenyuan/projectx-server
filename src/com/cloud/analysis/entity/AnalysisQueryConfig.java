@@ -1,4 +1,4 @@
-package com.cloud.analysis.entity;
+ï»¿package com.cloud.analysis.entity;
 
 public class AnalysisQueryConfig {	
 	private String agent;
@@ -8,9 +8,9 @@ public class AnalysisQueryConfig {
 	private int smallerThan;
 	private int requestStart;
 	private int requestEnd;
-	private int success = -1;//-1±íÊ¾È«²¿£¬0±íÊ¾³É¹¦£¬1±íÊ¾Ê§°Ü
-	private String failedReceive = null;//´íÎóÏìÓ¦Âë
-	private int faileType = -1;//Ê§°ÜÀàĞÍ
+	private int success = -1;//-1è¡¨ç¤ºå…¨éƒ¨ï¼Œ0è¡¨ç¤ºæˆåŠŸï¼Œ1è¡¨ç¤ºå¤±è´¥
+	private String failedReceive = null;//é”™è¯¯å“åº”ç 
+	private int faileType = -1;//å¤±è´¥ç±»å‹
 	public String getAgent() {
 		return agent;
 	}
