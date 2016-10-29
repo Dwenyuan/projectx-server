@@ -1,5 +1,5 @@
-1¡¢µ½¹ÙÍøÏÂÔØÈí¼ş£¬www.kylinpet.com£¬È»ºó°²×°
-2¡¢½«¹¤³ÌÄ¿Â¼agentÄ¿Â¼ÏÂµÄagent.jarÓëconf/test.ini¸´ÖÆµ½°²×°Ä¿Â¼µÄagent¶ÔÓ¦Î»ÖÃ£¨±¸·İÏÂÖ®Ç°µÄagent.jar£©
-3¡¢ÅäÖÃwindows/system32/drivers/etc/hosts  Ìí¼Ó127.0.0.1  www.xxx.com
-4¡¢µã»÷°²×°Ä¿Â¼ÏÂµÄagentÏÂµÄagent.bat£¬Æô¶¯agent
-5¡¢Èç¹ûÊÇ²âÊÔÊÇ·ñOK£¬¿ÉÒÔÖ±½Óµã»÷TestcaseActionÔËĞĞ£¨ÀïÃæÓĞmain£¬Ò²¿ÉÒÔ×÷Îªcontroller½Ó¿Ú£©
+ï»¿1ã€åˆ°å®˜ç½‘ä¸‹è½½è½¯ä»¶ï¼Œwww.kylinpet.comï¼Œç„¶åå®‰è£…
+2ã€å°†å·¥ç¨‹ç›®å½•agentç›®å½•ä¸‹çš„agent.jarä¸conf/test.iniå¤åˆ¶åˆ°å®‰è£…ç›®å½•çš„agentå¯¹åº”ä½ç½®ï¼ˆå¤‡ä»½ä¸‹ä¹‹å‰çš„agent.jarï¼‰
+3ã€é…ç½®windows/system32/drivers/etc/hosts  æ·»åŠ 127.0.0.1  www.xxx.com
+4ã€ç‚¹å‡»å®‰è£…ç›®å½•ä¸‹çš„agentä¸‹çš„agent.batï¼Œå¯åŠ¨agent
+5ã€å¦‚æœæ˜¯æµ‹è¯•æ˜¯å¦OKï¼Œå¯ä»¥ç›´æ¥ç‚¹å‡»TestcaseActionè¿è¡Œï¼ˆé‡Œé¢æœ‰mainï¼Œä¹Ÿå¯ä»¥ä½œä¸ºcontrolleræ¥å£ï¼‰
