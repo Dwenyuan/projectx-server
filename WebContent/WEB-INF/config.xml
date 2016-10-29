@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>	
+	<!-- 抓包的网卡MAC地址，即交换机映射的端口连接PC的网卡 -->
+	<captorMac>00-E0-4C-88-6C-77</captorMac>
+	<!-- 网关的MAC地址，即无线猫的MAC地址，计算总的吞吐量用到，可以先ping网关IP，再arp -a查询MAC -->
+	<gatewayMac>00-00-5e-00-01-89</gatewayMac>
+	<!-- 默认只统计MAC地址为gatewayMac的报文，如果需要加入其它MAC，需要在这里配置，多个以逗号分隔 -->
+	<filterMAC></filterMAC>
+	<!-- 1表示是曲线图一起显示上行与下行两条曲线，0表示上下行曲线不在同一个图显示，通过点击下面按钮来切换 -->
+	<twoLine>1</twoLine>
+	<!-- 1表示曲线背景为透明，其他值表示曲线背景为白色 -->
+	<lineBG>1</lineBG>
+	<!-- 曲线只显示最近多少秒，如果太多，曲线太密则不美观 -->
+	<numvalues>20</numvalues>	
+	<!-- 1表示是假的数据，删除或其他值，表示是抓包的数据 -->
+	<test>1</test>
+	<!-- 界面上显示的设备列表 -->
+	<pcDevice>
+		<item>
+			<name>电脑1</name>
+			<ip>1.1.1.1</ip>
+		</item>
+	</pcDevice>
+	<stbDevice>
+		<!-- 默认某个设备的IP地址，即需要在界面上显示吞吐量那个设备的IP地址。后面可通过点击修改 -->
+		<item>
+			<name>华为机顶盒</name>
+			<ip>10.78.226.241</ip>
+		</item>
+		<item>
+			<name>小米机顶盒</name>
+			<ip>2.2.2.2</ip>
+		</item>
+	</stbDevice>
+	<padDevice>
+		<item>
+			<name>IPAD</name>
+			<ip>2.2.2.2</ip>
+		</item>
+		<item>
+			<name>Media PAD</name>
+			<ip>2.2.2.2</ip>
+		</item>
+	</padDevice>
+	<phoneDevice>
+		<item>
+			<name>IPhone</name>
+			<ip>2.2.2.2</ip>
+		</item>
+	</phoneDevice>
+</config>

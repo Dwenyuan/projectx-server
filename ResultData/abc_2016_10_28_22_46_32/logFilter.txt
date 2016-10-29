@@ -1,0 +1,6 @@
+connect timed out
+can't get 
+parameter
+server close tcp
+connection failed
+500
