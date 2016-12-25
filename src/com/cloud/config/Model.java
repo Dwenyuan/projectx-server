@@ -1,14 +1,14 @@
-ï»¿package com.cloud.config;
+package com.cloud.config;
 
 public class Model {
-	private int isCaps = 1;//æ˜¯å¦æ¯ç§’å¹¶å‘capsæ¨¡å‹ï¼Œè¿˜æ˜¯æ¯ç§’é™å®šç”¨æˆ·æ•°æ¨¡å‹ 
-	private int modelType = 0;//é€‰æ‹©ä»€ä¹ˆç±»å‹çš„ç´¢å¼•å€¼
-	private String totalUsers = "2";//æ€»ç”¨æˆ·æ•°
-	private String caps = "1";//initialï¼ˆé€’å¢æˆ–é€’å‡ï¼‰æˆ–è€…capsï¼ˆå¹³ç¨³ï¼‰ï¼Œæˆ–è€…æ˜¯minï¼ˆæµªæ¶Œã€éœ‡è¡ï¼‰
-	private String limit = "1";//è€…maxæˆ–è€…minï¼ˆé€’å¢æˆ–é€’å‡ï¼‰ï¼Œmaxï¼ˆæµªæ¶Œã€éœ‡è¡ï¼‰
-	private String keepTime = "1";//ä¿æŒæ—¶é—´ï¼ˆAlter Frequencyï¼‰
-	private String step = "1";//Increase Valueé€’å¢æ­¥å€¼æˆ–decrease Valueé€’å‡æ­¥å€¼ï¼Œæˆ–è€…wave and peak çš„æå€¼
-	private int chooseType = 0;//é€’å¢æˆ–é€’å‡ç±»å‹ç´¢å¼•ï¼Œæˆ–è€…æ˜¯wave and peakç±»å‹ç´¢å¼•
+	private int isCaps = 1;//ÊÇ·ñÃ¿Ãë²¢·¢capsÄ£ĞÍ£¬»¹ÊÇÃ¿ÃëÏŞ¶¨ÓÃ»§ÊıÄ£ĞÍ 
+	private int modelType = 0;//Ñ¡ÔñÊ²Ã´ÀàĞÍµÄË÷ÒıÖµ
+	private String totalUsers = "2";//×ÜÓÃ»§Êı
+	private String caps = "1";//initial£¨µİÔö»òµİ¼õ£©»òÕßcaps£¨Æ½ÎÈ£©£¬»òÕßÊÇmin£¨ÀËÓ¿¡¢Õğµ´£©
+	private String limit = "1";//Õßmax»òÕßmin£¨µİÔö»òµİ¼õ£©£¬max£¨ÀËÓ¿¡¢Õğµ´£©
+	private String keepTime = "1";//±£³ÖÊ±¼ä£¨Alter Frequency£©
+	private String step = "1";//Increase ValueµİÔö²½Öµ»òdecrease Valueµİ¼õ²½Öµ£¬»òÕßwave and peak µÄ¼«Öµ
+	private int chooseType = 0;//µİÔö»òµİ¼õÀàĞÍË÷Òı£¬»òÕßÊÇwave and peakÀàĞÍË÷Òı
 	
 	public int getIsCaps() {
 		return isCaps;

@@ -1,4 +1,4 @@
-﻿package com.cloud.config;
+package com.cloud.config;
 
 public class MonitorItem {
 

@@ -1,21 +1,21 @@
-ï»¿package com.cloud.config;
+package com.cloud.config;
 
 public class Mail {
-	// å‘é€é‚®ä»¶çš„æœåŠ¡å™¨çš„IPå’Œç«¯å£    
+	// ·¢ËÍÓÊ¼şµÄ·şÎñÆ÷µÄIPºÍ¶Ë¿Ú    
     private String mailServerHost;    
     private String mailServerPort = "25";    
-    // é‚®ä»¶å‘é€è€…çš„åœ°å€    
+    // ÓÊ¼ş·¢ËÍÕßµÄµØÖ·    
     private String fromAddress;    
-    // é‚®ä»¶æ¥æ”¶è€…çš„åœ°å€    
+    // ÓÊ¼ş½ÓÊÕÕßµÄµØÖ·    
     private String toAddress;    
-    // ç™»é™†é‚®ä»¶å‘é€æœåŠ¡å™¨çš„ç”¨æˆ·åå’Œå¯†ç     
+    // µÇÂ½ÓÊ¼ş·¢ËÍ·şÎñÆ÷µÄÓÃ»§ÃûºÍÃÜÂë    
     private String userName;    
     private String password;    
-    // æ˜¯å¦éœ€è¦èº«ä»½éªŒè¯    
+    // ÊÇ·ñĞèÒªÉí·İÑéÖ¤    
     private boolean validate = false;    
-    // é‚®ä»¶ä¸»é¢˜    
+    // ÓÊ¼şÖ÷Ìâ    
     private String subject;    
-    // é‚®ä»¶çš„æ–‡æœ¬å†…å®¹    
+    // ÓÊ¼şµÄÎÄ±¾ÄÚÈİ    
     private String content;
     
 	public String getMailServerHost() {

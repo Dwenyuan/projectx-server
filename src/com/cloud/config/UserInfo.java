@@ -1,8 +1,9 @@
-锘縫ackage com.cloud.config;
+package com.cloud.config;
 
 public class UserInfo {
 	private String name = null;
-	private int taskNum = 1;//鑳借繍琛岀殑浠诲姟鏁帮紝鍙互鍚屾椂杩愯澶氫釜
+	private int taskNum = 1;//能运行的任务数，可以同时运行多个
+	private long space = 10 * 1000000000;//一个用户允许使用的磁盘空间
 	
 	public String getName() {
 		return name;

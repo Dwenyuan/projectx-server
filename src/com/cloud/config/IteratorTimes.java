@@ -1,8 +1,8 @@
-ï»¿package com.cloud.config;
+package com.cloud.config;
 
 public class IteratorTimes {
-	private int onlineIndex = 0;//0è¡¨ç¤ºè¿è¡Œå®Œå°±ç»“æŸï¼Œ1è¡¨ç¤ºä¸€ç›´å¾ªç¯ï¼Œ2è¡¨ç¤ºè¿è¡Œç›¸åº”ä¸ªæ•°
-	private String loopTimes = null;//è·Œä»£è¿è¡Œå¤šå°‘æ¬¡
+	private int onlineIndex = 0;//0±íÊ¾ÔËĞĞÍê¾Í½áÊø£¬1±íÊ¾Ò»Ö±Ñ­»·£¬2±íÊ¾ÔËĞĞÏàÓ¦¸öÊı
+	private String loopTimes = null;//µø´úÔËĞĞ¶àÉÙ´Î
 	
 	public int getOnlineIndex() {
 		return onlineIndex;

@@ -1,19 +1,19 @@
-ï»¿package com.cloud.analysis.entity;
+package com.cloud.analysis.entity;
 
 public class UserAnalysisEntity {
-	private int row = 0;//è¡Œæ•°
-	private int start = 0;//æ—¶é—´
-	private long user = 0;//ç”¨æˆ·ç´¢å¼•
-	private String agent = null;//å½’å±agent
-	private int success = 0;//æˆåŠŸæˆ–å¤±è´¥
-	private String failed = null;//å¤±è´¥åŸå› 
-	private int time = -1;//æ•´ä¸ªä¼šè¯æ—¶é—´
-	private int diff = 0;//ä¸å½•åˆ¶æ¯”è¾ƒ
-	private int urls = 0;//æ€»çš„è¯·æ±‚æ•°æˆ–å‘é€æ¥æ”¶èŠ‚ç‚¹æ•°	
+	private int row = 0;//ĞĞÊı
+	private int start = 0;//Ê±¼ä
+	private long user = 0;//ÓÃ»§Ë÷Òı
+	private String agent = null;//¹éÊôagent
+	private int success = 0;//³É¹¦»òÊ§°Ü
+	private String failed = null;//Ê§°ÜÔ­Òò
+	private int time = -1;//Õû¸ö»á»°Ê±¼ä
+	private int diff = 0;//ÓëÂ¼ÖÆ±È½Ï
+	private int urls = 0;//×ÜµÄÇëÇóÊı»ò·¢ËÍ½ÓÊÕ½ÚµãÊı	
 	
-	//ç”¨äºè¯»å–æ•´ä¸ªWEBInfoï¼Œå¾—åˆ°ç±»ä¼¼å¿«ç…§çš„è¡¨æ ¼
-	private int len = 0;//WEBInfoæ•°æ®é•¿åº¦
-	private long file = 0;//WEBInfoæ•°æ®åœ¨webInfoæ–‡ä»¶çš„ç´¢å¼•
+	//ÓÃÓÚ¶ÁÈ¡Õû¸öWEBInfo£¬µÃµ½ÀàËÆ¿ìÕÕµÄ±í¸ñ
+	private int len = 0;//WEBInfoÊı¾İ³¤¶È
+	private long file = 0;//WEBInfoÊı¾İÔÚwebInfoÎÄ¼şµÄË÷Òı
 	
 	public int getRow() {
 		return row;

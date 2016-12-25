@@ -1,20 +1,22 @@
-ï»¿package com.cloud.config;
+package com.cloud.config;
 
 import java.util.Vector;
+
+import com.cloud.utils.Utils;
 /**
- * åŠ è½½é…ç½®è¿”å›ç»“æœ
+ * ¼ÓÔØÅäÖÃ·µ»Ø½á¹û
  * @author Administrator
  *
  */
 public class LoadResult {
-	//æ‰§è¡Œæ˜¯å¦æˆåŠŸ
+	//Ö´ĞĞÊÇ·ñ³É¹¦
 	private boolean result = false;
-	//è¿æ¥agentå¤±è´¥æœ‰å“ªäº›ï¼Œå¯èƒ½å¤šä¸ªç”¨æˆ·å…±ç”¨æ‰§è¡Œå™¨ï¼Œå¯¼è‡´ä¸€èµ·é…ç½®å’Œæ‰§è¡Œæ—¶ï¼Œæœ‰äº›agentå·²ç»è¢«åˆ«äººå…ˆæ‰§è¡Œã€‚æˆ–è€…é…ç½®åï¼Œagentåœæ­¢è¿è¡Œäº†
-	//åˆ™åŠ è½½å¤±è´¥ï¼Œé€šçŸ¥ç”¨æˆ·ï¼Œè®©ç”¨æˆ·é‡æ–°é…ç½®
-	//æ”¯æŒåŒæ­¥ï¼Œå› ä¸ºè¿æ¥å¤šä¸ªagentæ˜¯å¹¶è¡Œçš„
+	//Á¬½ÓagentÊ§°ÜÓĞÄÄĞ©£¬¿ÉÄÜ¶à¸öÓÃ»§¹²ÓÃÖ´ĞĞÆ÷£¬µ¼ÖÂÒ»ÆğÅäÖÃºÍÖ´ĞĞÊ±£¬ÓĞĞ©agentÒÑ¾­±»±ğÈËÏÈÖ´ĞĞ¡£»òÕßÅäÖÃºó£¬agentÍ£Ö¹ÔËĞĞÁË
+	//Ôò¼ÓÔØÊ§°Ü£¬Í¨ÖªÓÃ»§£¬ÈÃÓÃ»§ÖØĞÂÅäÖÃ
+	//Ö§³ÖÍ¬²½£¬ÒòÎªÁ¬½Ó¶à¸öagentÊÇ²¢ĞĞµÄ
 	private Vector<LoadAgentConfig> failedAgents = new Vector<LoadAgentConfig>();
-	//1è¡¨ç¤ºä»»åŠ¡åœ¨è¿è¡Œä¸­ï¼Œéœ€è¦å…ˆåœæ­¢
-	private int errorType = 0;
+	//Ê§°ÜÔ­Òò
+	private String error = null;
 	
 	public boolean isResult() {
 		return result;
@@ -32,11 +34,21 @@ public class LoadResult {
 	public void addFail(LoadAgentConfig config){
 		failedAgents.add(config);
 	}
-	public int getErrorType() {
-		return errorType;
+
+	public void setErrorType(int type, String value){
+		if(type == 1){
+			error = Utils.getInfoString("limitRun", value);
+		}
+		else if(type == 2){
+			error = Utils.resources.getString("testcaseName");
+		}
 	}
-	public void setErrorType(int errorType) {
-		this.errorType = errorType;
+	public String getError() {
+		return error;
 	}
+	public void setError(String error) {
+		this.error = error;
+	}
+	
 	
 }

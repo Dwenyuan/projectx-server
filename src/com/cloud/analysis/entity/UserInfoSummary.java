@@ -1,19 +1,19 @@
-ï»¿package com.cloud.analysis.entity;
+package com.cloud.analysis.entity;
 
 import java.util.ArrayList;
 
 public class UserInfoSummary {	
-	//æ€»çš„äº‹åŠ¡æˆ–ä»»åŠ¡ã€Agentæ±‡æ€»
+	//×ÜµÄÊÂÎñ»òÈÎÎñ¡¢Agent»ã×Ü
 	private ArrayList<UserInfoTaskSummary> successTask = null;
-	//å¤±è´¥äº‹åŠ¡æˆ–ä»»åŠ¡ã€Agentæ±‡æ€»
+	//Ê§°ÜÊÂÎñ»òÈÎÎñ¡¢Agent»ã×Ü
 	private ArrayList<UserInfoTaskSummary> failedTask = null;
-	//è¿è¡Œä¸­é”™è¯¯ã€å¤±è´¥åŸå› æ±‡æ€»
+	//ÔËĞĞÖĞ´íÎó¡¢Ê§°ÜÔ­Òò»ã×Ü
 	private ArrayList<UserInfoErrorSummary> error = null;
-	//äº‹åŠ¡æ—¶é—´è¶…è¿‡5ç§’å¾—åˆ°éœ€è¦æ˜¾ç¤ºçš„æ±‡æ€»
+	//ÊÂÎñÊ±¼ä³¬¹ı5ÃëµÃµ½ĞèÒªÏÔÊ¾µÄ»ã×Ü
 	private ArrayList<UserInfoOver5Summary> over5 = null;
-	//è¯·æ±‚æ±‡æ€»
+	//ÇëÇó»ã×Ü
 	private ArrayList<UserInfoURLSummary> url = null;
-	//è¯·æ±‚é‡Œçš„å¤±è´¥æ±‡æ€»
+	//ÇëÇóÀïµÄÊ§°Ü»ã×Ü
 	private ArrayList<UserInfoURLSummary> urlFailed = new ArrayList<UserInfoURLSummary>();
 	
 	public ArrayList<UserInfoTaskSummary> getSuccessTask() {

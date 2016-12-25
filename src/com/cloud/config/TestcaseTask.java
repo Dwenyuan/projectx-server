@@ -1,26 +1,28 @@
-ï»¿package com.cloud.config;
+package com.cloud.config;
 
 import java.util.List;
 
 public class TestcaseTask {
 	private String name = null;
-	//è„šæœ¬
-	private String scripter = null;
-	//å‚æ•°æ–‡ä»¶
-	private String paraFile = null;
+	//½Å±¾
+	private String scripterID = null;
+	private String scripterName = null;
+	//²ÎÊıÎÄ¼ş
+	private String paraID = null;
+	private String paraName = null;
 	
-	//è„šæœ¬å¯¹åº”çš„æ‰§è¡Œå™¨
+	//½Å±¾¶ÔÓ¦µÄÖ´ĞĞÆ÷
 	private List<LoadAgentConfig> loadAgent = null;
-	//æ–½å‹æ¨¡å‹
+	//Ê©Ñ¹Ä£ĞÍ
 	private Model model = null;
 	
-	//å¼€å§‹æ‰§è¡Œ
+	//¿ªÊ¼Ö´ĞĞ
 	private StartConfig startConfig = null;
-	//ç»“æŸæ‰§è¡Œ
+	//½áÊøÖ´ĞĞ
 	private StopConfig stopConfig = null;
-	//è¿è¡Œæ¬¡æ•°
+	//ÔËĞĞ´ÎÊı
 	private IteratorTimes iteratorTimes = null;
-	//é›†åˆç‚¹
+	//¼¯ºÏµã
 	private Rendezvous rendezvous = null;		
 	
 	public String getName() {
@@ -28,19 +30,30 @@ public class TestcaseTask {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}	
+	public String getScripterID() {
+		return scripterID;
 	}
-	public String getScripter() {
-		return scripter;
+	public void setScripterID(String scripterID) {
+		this.scripterID = scripterID;
 	}
-	public void setScripter(String scripter) {
-		this.scripter = scripter;
+	public String getScripterName() {
+		return scripterName;
 	}
-	
-	public String getParaFile() {
-		return paraFile;
+	public void setScripterName(String scripterName) {
+		this.scripterName = scripterName;
 	}
-	public void setParaFile(String paraFile) {
-		this.paraFile = paraFile;
+	public String getParaID() {
+		return paraID;
+	}
+	public void setParaID(String paraID) {
+		this.paraID = paraID;
+	}
+	public String getParaName() {
+		return paraName;
+	}
+	public void setParaName(String paraName) {
+		this.paraName = paraName;
 	}
 	public List<LoadAgentConfig> getLoadAgent() {
 		return loadAgent;

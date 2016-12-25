@@ -1,11 +1,11 @@
-锘縫ackage com.cloud.config;
+package com.cloud.config;
 
 public class LoadAgentConfig {	
 	private String address = null;
 	private String name = null;
 	private String ip = null;
 	private int port = 1998;
-	//铏氭嫙IP鐨勮捣濮嬩簬缁撴潫
+	//虚拟IP的起始于结束
 	private String startIP = null;
 	private String endIP = null;
 	private String error = null;
